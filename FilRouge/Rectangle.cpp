@@ -18,6 +18,10 @@ int Rectangle::getH(){
     return h;
 }
 
+int Rectangle::getOrdre(){
+    return ordre;
+}
+
 void Rectangle::setX(int nx){
     x = nx;
 }
@@ -34,8 +38,11 @@ void Rectangle::setH(int nh){
     h = nh;
 }
 
+void Rectangle::setOrdre(int no){
+    ordre = no;
+}
+
 Rectangle::Rectangle(int nx, int ny, int nw, int nh) : x(nx), y(ny), w(nw), h(nh) {
-    
 }
 
 string Rectangle::toString(){

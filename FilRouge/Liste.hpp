@@ -3,6 +3,8 @@
 
 const int taille_tab = 10;
 
+using namespace std;
+
 class Liste {
 
     public:

@@ -18,6 +18,10 @@ int Cercle::getH(){
     return h;
 }
 
+int Cercle::getOrdre(){
+    return no;
+}
+
 void Cercle::setX(int nx){
     x = nx;
 }
@@ -32,6 +36,10 @@ void Cercle::setW(int nw){
 
 void Cercle::setH(int nh){
     h = nh;
+}
+
+void Cercle::setOrdre(int no){
+    ordre = no;
 }
 
 Cercle::Cercle(int nx, int ny, int nw, int nh) : x(nx), y(ny), w(nw), h(nh) {

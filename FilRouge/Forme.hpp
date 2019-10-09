@@ -9,14 +9,26 @@ using namespace std;
 
 class Forme {
 
-    int static nbFormes;
+    static int nbFormes;
 
     private:
         Point p;
-        int w;
-        int h;
+        unsigned int w;
+        unsigned int h;
+
+    public:
+        int getH();
+        int getW();
+        //int getPoint();
+
+        void setH(int nh);
+        void setW(int nw);
+        void setPoint(int nx, int ny);
 
         Forme();
+
+
+
 
 };
 

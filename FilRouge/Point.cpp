@@ -2,19 +2,19 @@
 
 #include "Point.hpp"
 
-int Cercle::getX() {
+int Point::getX() {
     return x;
 }
         
-int Cercle::getY() {
+int Point::getY() {
     return y;
 }
 
-void Cercle::setX(int nx){
+void Point::setX(int nx){
     x = nx;
 }
 
-void Cercle::setY(int ny){
+void Point::setY(int ny){
     y = ny;
 }
 

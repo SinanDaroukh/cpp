@@ -13,6 +13,7 @@ class Rectangle {
         int y;
         int w;
         int h;
+        int ordre;
     
     public:
 
@@ -20,11 +21,13 @@ class Rectangle {
         int getY();
         int getW();
         int getH();
+        int getOrdre();
 
         void setX(int nx);
         void setY(int ny);
         void setW(int nw);
         void setH(int nh);
+        void setOrdre(int no);
 
         Rectangle(int x, int y, int w, int h);
 

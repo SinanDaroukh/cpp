@@ -13,6 +13,7 @@ class Cercle {
         int y;
         int w;
         int h;
+        int ordre;
     
     public:
 
@@ -20,11 +21,13 @@ class Cercle {
         int getY();
         int getW();
         int getH();
+        int getOrdre();
 
         void setX(int nx);
         void setY(int ny);
         void setW(int nw);
         void setH(int nh);
+        void setOrdre(int no);
 
         Cercle(int x, int y, int w, int h);
         Cercle(int x1, int y1, int rayon);
