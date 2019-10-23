@@ -3,7 +3,7 @@
 
 #include "catch.hpp"
 #include "Point.hpp"
-#include "Rectangle.hpp"
+#include "Cercle.hpp"
 
 // NOTE : ce test utilise des enum "class"
 // il faut donc utiliser un compilateur g++ >= 6.1
@@ -13,7 +13,7 @@
 // Les tests ne sont pas exhaustifs, loin de là
 
 TEST_CASE("Instanciation", "[Point]") {
-/*	
+	
 	Point p1;
 	REQUIRE(p1.getX() == 0);
 	REQUIRE(p1.getY() == 0);
@@ -27,19 +27,15 @@ TEST_CASE("Instanciation", "[Point]") {
 	Point p2(12, 22);
 
 	REQUIRE(p2.getX() == 12);
-	REQUIRE(p2.getY() ==  0);  // :-)
-*/
+	REQUIRE(p2.getY() ==  22);  // Unvictimized
+
 }
 
-/*
 TEST_CASE("Origine", "[Point]") {
 	REQUIRE(ORIGINE.getX() == 0);
 	REQUIRE(ORIGINE.getY() == 0);
 }
 
-*/
-
-/*
 TEST_CASE("Compteur", "[Forme]") {
    // Pour être correct, ce test doit etre le premier sur Forme
    REQUIRE(0 == Forme::prochainId());
@@ -52,18 +48,15 @@ TEST_CASE("Compteur", "[Forme]") {
    delete p;
    REQUIRE(2 == Forme::prochainId());	
 }
-*/
 
-/*
+
 TEST_CASE("Instanciation1", "[Forme]") {
 	Forme f1;
 	REQUIRE(f1.getPoint().getX() == 0);
 	REQUIRE(f1.getPoint().getY() == 0);
 	REQUIRE(f1.getCouleur() ==  COULEURS::BLEU);
 }
-*/
 
-/*
 TEST_CASE("Instanciation2", "[Forme]") {
 	Forme f2;
 	
@@ -77,9 +70,8 @@ TEST_CASE("Instanciation2", "[Forme]") {
 	REQUIRE_FALSE (f2.getCouleur() == COULEURS::ROUGE);
 	REQUIRE_FALSE (f2.getCouleur() == COULEURS::JAUNE);
 }
-*/
 
-/*
+
 TEST_CASE("Instanciation3", "[Forme]") {
     // IL N'Y A PAS D'ERREUR DANS LE TEST, CELA DOIT MARCHER	
 	Forme f2(Point(10,20), COULEURS::ROUGE);
@@ -96,6 +88,35 @@ TEST_CASE("Instanciation3", "[Forme]") {
 	REQUIRE (f2.getCouleur() == COULEURS::JAUNE);
 	REQUIRE_FALSE (f2.getCouleur() == COULEURS::BLEU);
 	REQUIRE_FALSE (f2.getCouleur() == COULEURS::ROUGE);
+}
+
+TEST_CASE("Cercle", "[Cercle]") {
+  int compteur = Forme::prochainId();
+   Cercle c1;
+   Cercle c2(1,2,5);
+   
+   REQUIRE(c1.toString() == "CERCLE 0 0 0 0 0");
+   REQUIRE(c2.toString() == "CERCLE 1 2 10 10 5");
+
+   c2.setRayon(10);
+   REQUIRE(c2.getRayon() == 10 );
+   REQUIRE(c2.toString() == "CERCLE 1 2 20 20 10");
+   REQUIRE(c2.getLargeur() == 20);
+   REQUIRE(c2.getHauteur() == 20);
+
+   REQUIRE(Forme::prochainId() == (compteur+2) );
+}
+
+/*
+TEST_CASE("Polymorphisme", "[Forme]") {
+   Forme * f1 = new Cercle;
+   Forme * f2 = new Rectangle;
+
+   REQUIRE(f1->toString() == ".....");
+   REQUIRE(f2->toString() == ".....");
+
+   delete f1;
+   delete f2;
 }
 */
 
