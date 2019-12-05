@@ -17,8 +17,12 @@ void Telephone::setNumero(std::string numero){
     _num = numero;
 }
 
-unsigned int Telephone::getReseau() const {
+Reseau * Telephone::getReseau() const {
     return _res;
+}
+
+void Telephone::setReseau(Reseau * r) {
+    _res = r;
 }
 
 bool Telephone::operator<(const Telephone & tel) const {
@@ -28,7 +32,9 @@ bool Telephone::operator<(const Telephone & tel) const {
 /* Classe Réseau */
 
 void Reseau::ajouter(std::string tel){
-    telephones.push_back(Telephone(tel));
+    Telephone x(tel);
+    x.setReseau(this);
+    telephones.push_back(x);
     telephones.sort();
 }
 
@@ -92,4 +98,44 @@ int Telephone::getNbMessages() const {
 
 void Telephone:: textoter(std::string u, std::string v){
     messages.push_back(new SMS(_num,u,v));
+    try {
+    _res->trouveTel(u).messages.push_back(new SMS(_num,u,v));
+    }
+    catch( MauvaisNumero e){
+        std::cout << "Téléphone destinataire non sur le réseau - Error"  << std::endl;
+    }
+}
+
+std::string Image::afficher(){
+    return "[[image]]";
+}
+
+std::string Son::afficher(){
+    return "[[son]]";
+}
+
+std::string Video::afficher(){
+    return "[[video]]";
+}
+
+MMS::MMS(std::string str, std::string stat, std::string srr) :
+    Message(str,stat,srr)
+{
+
+}
+
+void MMS::joindre(Media * med){
+    media.push_back(med);
+}
+
+void MMS::setTexte(std::string str){
+    texte = str;
+}
+
+std::string MMS::afficher(){
+    std::stringstream ss;
+    ss << texte;
+    for (auto i : media )
+        ss << i->afficher(); 
+    return ss.str();
 }

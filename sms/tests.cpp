@@ -2,8 +2,6 @@
 #include "sms.hpp"
 #include <cstring>
 
-
-
 TEST_CASE("telephone1a") {
   Telephone iphone;
   const char * isima = "0473405000";
@@ -48,7 +46,6 @@ TEST_CASE("Reseau2") {
  CHECK ("0473405000\n0473405042\n0473407632\n" == r.lister());
 }
 
-
 // C'est bien pourri mais permet d'initialiser r
 #define MON_RESEAU \
 Reseau r;\
@@ -61,10 +58,8 @@ TEST_CASE("Reseau3") {
  MON_RESEAU;
 
  CHECK("0473405042" == r.trouveTel("0473405042").getNumero());
- //CHECK(&r           == r.trouveTel("0473405042").getReseau());
+ CHECK(&r           == r.trouveTel("0473405042").getReseau());
 }
-
-
 
 TEST_CASE("Reseau4") {
  MON_RESEAU;
@@ -72,14 +67,11 @@ TEST_CASE("Reseau4") {
  CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), std::invalid_argument);
 }
 
-
-
 TEST_CASE("Reseau5") {
   MauvaisNumero e;
 
   CHECK(strcmp("mauvais numero", e.what()) == 0 );
 }
-
 
 TEST_CASE("Reseau6") {
   MON_RESEAU;
@@ -87,14 +79,11 @@ TEST_CASE("Reseau6") {
   CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), MauvaisNumero);
 }
 
-
-
 TEST_CASE("Telephone3") {
  const Telephone t;
 
  CHECK( 0 == t.getReseau());
 }
-
 
 TEST_CASE("SMS1") {
 	SMS sms("0473405044", "0473405042", "20171207");
@@ -108,7 +97,6 @@ TEST_CASE("Message0") {
    Message m;
    // si ca compile, c'est perdu ...
 } */
-
 
 TEST_CASE("Message1") {
  int nb = Message::getCle();
@@ -157,7 +145,7 @@ TEST_CASE("SMS3") {
   CHECK(1 == de->getNbMessages());
 
 }
-/*
+
 TEST_CASE("Media") {
 	Media * m1 = new Image;
 	CHECK( "[[image]]" == m1->afficher() );
@@ -185,7 +173,7 @@ TEST_CASE("MMS1") {
 
   delete m1;  
 }
-
+/*
 TEST_CASE("MMS2") {
 	MMS * m1 = new MMS("", "", "");
   CHECK("" == m1->afficher());

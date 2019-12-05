@@ -2,6 +2,7 @@
 #define __SMS
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <list>
 #include <vector>
@@ -37,11 +38,12 @@ class SMS : public Message {
         std::string afficher();
 };
 
+class Reseau;
 class Telephone {
 
     private:
         std::string _num = "";
-        unsigned int _res = 0;
+        Reseau * _res = nullptr;
         std::vector<Message *> messages;
 
     public:
@@ -50,7 +52,8 @@ class Telephone {
         ~Telephone(){};
         std::string getNumero() const;
         void setNumero(std::string numero);
-        unsigned int getReseau() const;
+        Reseau * getReseau() const;
+        void setReseau(Reseau * r);
         int getNbMessages() const;
         void textoter(std::string u, std::string v);
         bool operator<(const Telephone & tel) const;
@@ -75,8 +78,44 @@ class Reseau {
 
 class MauvaisNumero : public std::invalid_argument {
     public:
-        MauvaisNumero() : invalid_argument("mauvais numero") {};
-        
+        MauvaisNumero() : invalid_argument("mauvais numero") {};     
+};
+
+class Media {
+    public:
+        virtual ~Media(){};
+        virtual std::string afficher() = 0;
+
+};
+
+class Image : public Media {
+    public:
+        ~Image(){};
+        std::string afficher();
+};
+
+class Son : public Media {
+        ~Son(){};
+        std::string afficher();
+
+};
+class Video : public Media {
+        ~Video(){};
+        std::string afficher();
+
+};
+
+class MMS : public Message {
+    private:
+        std::list<Media *> media;
+        std::string texte;
+
+    public:
+        MMS(std::string str, std::string stat, std::string srr);
+        void joindre(Media * med);
+        void setTexte(std::string str);
+        std::string afficher();
+
 };
 
 #endif
