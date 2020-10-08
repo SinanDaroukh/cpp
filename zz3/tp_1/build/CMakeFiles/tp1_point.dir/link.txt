@@ -1,1 +1,1 @@
-/usr/bin/cc   -rdynamic CMakeFiles/tp1_point.dir/src/main_point.cpp.o CMakeFiles/tp1_point.dir/src/cartesien.cpp.o CMakeFiles/tp1_point.dir/src/point.cpp.o CMakeFiles/tp1_point.dir/src/polaire.cpp.o  -o tp1_point  -lpthread -lstdc++ -lm 
+/usr/bin/cc   -rdynamic CMakeFiles/tp1_point.dir/src/main_point.cpp.o CMakeFiles/tp1_point.dir/src/cartesien.cpp.o CMakeFiles/tp1_point.dir/src/point.cpp.o CMakeFiles/tp1_point.dir/src/polaire.cpp.o  -o tp1_point -lpthread -lstdc++ -lm 

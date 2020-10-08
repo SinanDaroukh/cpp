@@ -11,12 +11,13 @@ private:
 public:
     Cartesien();
     Cartesien(double x, double y);
+    Cartesien(Polaire);
     ~Cartesien();
     double getX() const;
     double getY() const;
     void setX(double);
     void setY(double);
-    void convertir(Polaire &p) const override;
-    void convertir(Cartesien &c) const override;
-    std::stringstream &afficher(std::stringstream &) const override;
+    void convertir(Polaire &) const override;
+    void convertir(Cartesien &) const override;
+    void afficher(std::stringstream &) const override;
 };

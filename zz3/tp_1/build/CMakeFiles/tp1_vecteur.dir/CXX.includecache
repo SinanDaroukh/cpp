@@ -10,37 +10,15 @@
 point.hpp
 ../src/point.hpp
 
-../src/polaire.hpp
-point.hpp
-../src/point.hpp
-
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/cartesien.cpp
-cartesien.hpp
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/cartesien.hpp
-cstdio
--
-cmath
--
-polaire.hpp
--
-
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/cartesien.hpp
-point.hpp
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/point.hpp
-
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/point.cpp
-point.hpp
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/point.hpp
-
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/point.hpp
+/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/src/point.hpp
 sstream
 -
 ostream
 -
 
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/polaire.cpp
+/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/src/polaire.cpp
 polaire.hpp
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/polaire.hpp
+/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/src/polaire.hpp
 cstdio
 -
 cartesien.hpp
@@ -48,7 +26,7 @@ cartesien.hpp
 cmath
 -
 
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/polaire.hpp
+/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/src/polaire.hpp
 point.hpp
-/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/src/point.hpp
+/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/src/point.hpp
 
