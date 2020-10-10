@@ -1,5 +1,5 @@
-/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/build/CMakeFiles/edit_cache.dir
-/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/build/CMakeFiles/tp1_test.dir
-/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/build/CMakeFiles/tp1_point.dir
-/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/build/CMakeFiles/rebuild_cache.dir
-/home/sdaroukh/Documents/isima/cpp/zz3/tp_1/build/CMakeFiles/tp1_vecteur.dir
+/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/build/CMakeFiles/rebuild_cache.dir
+/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/build/CMakeFiles/edit_cache.dir
+/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/build/CMakeFiles/tp1_test.dir
+/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/build/CMakeFiles/tp1_vecteur.dir
+/mnt/shared/Documents/ISIMA/cpp/zz3/tp_1/build/CMakeFiles/tp1_point.dir

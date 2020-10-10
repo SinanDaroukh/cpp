@@ -6,7 +6,7 @@
 
 #include <cartesien.hpp>
 #include <polaire.hpp>
-//#include <nuage.hpp>
+#include <nuage.hpp>
 
 // Tests //-----------------------------------------------------------------------------------------
 
@@ -230,106 +230,111 @@ TEST_CASE("TP1_Point::ConversionVirtuel")
 }
 
 //----------------------------------------------------------------------------------------------- 16
-TEST_CASE ( "TP1_Point::ConversionVersPolaire_V2" ) {
- const double x = 12.0;
- const double y = 24.0;
- const double a = 63.434948;
- const double d = 26.832815;
+TEST_CASE("TP1_Point::ConversionVersPolaire_V2")
+{
+    const double x = 12.0;
+    const double y = 24.0;
+    const double a = 63.434948;
+    const double d = 26.832815;
 
- Cartesien c(x,y);
- Polaire p(c);
+    Cartesien c(x, y);
+    Polaire p(c);
 
- REQUIRE ( p.getAngle() == Approx(a).epsilon(1e-3) );
- REQUIRE ( p.getDistance() == Approx(d).epsilon(1e-3) );
+    REQUIRE(p.getAngle() == Approx(a).epsilon(1e-3));
+    REQUIRE(p.getDistance() == Approx(d).epsilon(1e-3));
 }
 
 //----------------------------------------------------------------------------------------------- 17
-TEST_CASE ( "TP1_Point::ConversionVersCartesien_V2" ) {
- const double a = 12.0;
- const double d = 24.0;
- const double x = 23.475542;
- const double y = 4.9898805;
+TEST_CASE("TP1_Point::ConversionVersCartesien_V2")
+{
+    const double a = 12.0;
+    const double d = 24.0;
+    const double x = 23.475542;
+    const double y = 4.9898805;
 
- Polaire p(a,d);
- Cartesien c(p);
+    Polaire p(a, d);
+    Cartesien c(p);
 
- REQUIRE ( c.getX() == Approx(x).epsilon(1e-3) );
- REQUIRE ( c.getY() == Approx(y).epsilon(1e-3) );
+    REQUIRE(c.getX() == Approx(x).epsilon(1e-3));
+    REQUIRE(c.getY() == Approx(y).epsilon(1e-3));
 }
 
 //----------------------------------------------------------------------------------------------- 18
-/*TEST_CASE ( "TP1_Nuage::Ajout" ) {
- Cartesien p1(12.0,24.0);
- Polaire p2(13.0,25.0);
- Polaire p3(p1);
- Cartesien p4(p2);
+TEST_CASE("TP1_Nuage::Ajout")
+{
+    Cartesien p1(12.0, 24.0);
+    Polaire p2(13.0, 25.0);
+    Polaire p3(p1);
+    Cartesien p4(p2);
 
- Nuage n;
+    Nuage n;
 
- REQUIRE ( n.size() == 0u );
+    REQUIRE(n.size() == 0u);
 
- n.ajouter(p1);
- n.ajouter(p2);
- n.ajouter(p3);
- n.ajouter(p4);
+    n.ajouter(p1);
+    n.ajouter(p2);
+    n.ajouter(p3);
+    n.ajouter(p4);
 
- REQUIRE ( n.size() == 4u );
-}*/
+    REQUIRE(n.size() == 4u);
+}
 
 //----------------------------------------------------------------------------------------------- 19
-/*TEST_CASE ( "TP1_Nuage::Iterateurs" ) {
- Cartesien p1(12.0,24.0);
- Polaire p2(13.0,25.0);
- Polaire p3(p1);
- Cartesien p4(p2);
+TEST_CASE("TP1_Nuage::Iterateurs")
+{
+    Cartesien p1(12.0, 24.0);
+    Polaire p2(13.0, 25.0);
+    Polaire p3(p1);
+    Cartesien p4(p2);
 
- Nuage n;
+    Nuage n;
 
- n.ajouter(p1);
- n.ajouter(p2);
- n.ajouter(p3);
- n.ajouter(p4);
+    n.ajouter(p1);
+    n.ajouter(p2);
+    n.ajouter(p3);
+    n.ajouter(p4);
 
- Point * t[4];
- unsigned i = 0;
- Nuage::const_iterator it = n.begin();
+    Point *t[4];
+    unsigned i = 0;
+    Nuage::const_iterator it = n.begin();
 
- while (it!=n.end()) t[i++]=*(it++);
+    while (it != n.end())
+        t[i++] = *(it++);
 
- REQUIRE ( typeid(*(t[0])) == typeid(Cartesien) );
- REQUIRE ( typeid(*(t[1])) == typeid(Polaire) );
- REQUIRE ( typeid(*(t[2])) == typeid(Polaire) );
- REQUIRE ( typeid(*(t[3])) == typeid(Cartesien) );
+    REQUIRE(typeid(*(t[0])) == typeid(Cartesien));
+    REQUIRE(typeid(*(t[1])) == typeid(Polaire));
+    REQUIRE(typeid(*(t[2])) == typeid(Polaire));
+    REQUIRE(typeid(*(t[3])) == typeid(Cartesien));
 
- Cartesien & p5 = *static_cast<Cartesien *>(t[0]);
- Polaire & p6 = *static_cast<Polaire *>(t[1]);
- Polaire & p7 = *static_cast<Polaire *>(t[2]);
- Cartesien & p8 = *static_cast<Cartesien *>(t[3]);
+    Cartesien &p5 = *static_cast<Cartesien *>(t[0]);
+    Polaire &p6 = *static_cast<Polaire *>(t[1]);
+    Polaire &p7 = *static_cast<Polaire *>(t[2]);
+    Cartesien &p8 = *static_cast<Cartesien *>(t[3]);
 
- REQUIRE ( p5.getX() == Approx(12.0) );
- REQUIRE ( p5.getY() == Approx(24.0) );
- REQUIRE ( p6.getAngle() == Approx(13.0) );
- REQUIRE ( p6.getDistance() == Approx(25.0) );
+    REQUIRE(p5.getX() == Approx(12.0));
+    REQUIRE(p5.getY() == Approx(24.0));
+    REQUIRE(p6.getAngle() == Approx(13.0));
+    REQUIRE(p6.getDistance() == Approx(25.0));
 
- REQUIRE ( p7.getAngle() == Approx(63.434948).epsilon(1e-3) );
- REQUIRE ( p7.getDistance() == Approx(26.832815).epsilon(1e-3) );
- REQUIRE ( p8.getX() == Approx(24.359251).epsilon(1e-3) );
- REQUIRE ( p8.getY() == Approx(5.623776).epsilon(1e-3) );
-}*/
+    REQUIRE(p7.getAngle() == Approx(63.434948).epsilon(1e-3));
+    REQUIRE(p7.getDistance() == Approx(26.832815).epsilon(1e-3));
+    REQUIRE(p8.getX() == Approx(24.359251).epsilon(1e-3));
+    REQUIRE(p8.getY() == Approx(5.623776).epsilon(1e-3));
+}
 
 //--------------------------------------------------------------------------------------Commun 20-22
-/*double x[] = { 3,7,13,27 };
-double y[] = { 4,8,16,32 };
+double x[] = {3, 7, 13, 27};
+double y[] = {4, 8, 16, 32};
 
-Cartesien p1(x[0],y[0]);
-Cartesien p2(x[1],y[1]);
-Cartesien p3(x[2],y[2]);
-Cartesien p4(x[3],y[3]);
+Cartesien p1(x[0], y[0]);
+Cartesien p2(x[1], y[1]);
+Cartesien p3(x[2], y[2]);
+Cartesien p4(x[3], y[3]);
 
-Nuage n;*/
+Nuage n;
 
 //----------------------------------------------------------------------------------------------- 20
-/*TEST_CASE ( "TP1_Nuage::Barycentre" ) {
+TEST_CASE ( "TP1_Nuage::Barycentre" ) {
  n.ajouter(p1);
  n.ajouter(p2);
  n.ajouter(p3);
@@ -339,23 +344,23 @@ Nuage n;*/
 
  REQUIRE ( b.getX() == Approx((x[0]+x[1]+x[2]+x[3])/4) );
  REQUIRE ( b.getY() == Approx((y[0]+y[1]+y[2]+y[3])/4) );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 21
-/*TEST_CASE ( "TP1_Nuage::BarycentreCartesien" ) {
+TEST_CASE ( "TP1_Nuage::BarycentreCartesien" ) {
  Cartesien b = BarycentreCartesien()(n);
 
  REQUIRE ( b.getX() == Approx((x[0]+x[1]+x[2]+x[3])/4) );
  REQUIRE ( b.getY() == Approx((y[0]+y[1]+y[2]+y[3])/4) );
-}*/
+}
 
 //----------------------------------------------------------------------------------------------- 22
-/*TEST_CASE ( "TP1_Nuage::BarycentrePolaire" ) {
+TEST_CASE ( "TP1_Nuage::BarycentrePolaire" ) {
  Polaire p(Cartesien((x[0]+x[1]+x[2]+x[3])/4,(y[0]+y[1]+y[2]+y[3])/4));
  Polaire b = BarycentrePolaire()(n);
 
  REQUIRE ( b.getAngle() == Approx(p.getAngle()) );
  REQUIRE ( b.getDistance() == Approx(p.getDistance()) );
-}*/
+}
 
 // Fin //-------------------------------------------------------------------------------------------
