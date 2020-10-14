@@ -12,7 +12,8 @@ private:
     unsigned int _size;
 
 public:
-    typedef std::vector<Point *>::const_iterator const_iterator;
+    // typedef std::vector<Point *>::const_iterator const_iterator;
+    using const_iterator = std::vector<Point *>::const_iterator;
     Nuage();
     ~Nuage();
     unsigned int size();
