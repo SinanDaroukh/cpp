@@ -1,5 +1,5 @@
 # Project #-----------------------------------------------------------------------------------------
-project ( tp2 )
+project ( tp3 )
 
 cmake_minimum_required ( VERSION 2.8.9 )
 
@@ -34,21 +34,14 @@ message ( STATUS "Compiler flags: ${CMAKE_CXX_FLAGS}" )
 
 # Sources #-----------------------------------------------------------------------------------------
 set ( ZZ3_HEADERS
-      src/cartesien.hpp
-      src/cosinus.hpp
-      src/exponentielle.hpp
-      src/factorielle.hpp
-      src/nuage.hpp
-      src/point.hpp
-      src/polaire.hpp
-      src/puissance.hpp
+      src/classe.hpp
+      src/comparateur_quantite.hpp
+      src/echantillon.hpp
+      src/histogramme.hpp
+      src/valeur.hpp
     )
 
 set ( ZZ3_SOURCES
-      src/cartesien.cpp
-      src/point.cpp
-      src/polaire.cpp
-      src/nuage.cpp
     )
 
 set ( ZZ3_HEADERS_TEST
@@ -60,14 +53,8 @@ set ( ZZ3_SOURCES_TEST
 include_directories ( src/ )
 
 # Executables #-------------------------------------------------------------------------------------
-add_executable ( ${CMAKE_PROJECT_NAME}_metaprog
-                 src/main_metaprog.cpp
-                 ${ZZ3_HEADERS}
-                 ${ZZ3_SOURCES}
-               )
-
-add_executable ( ${CMAKE_PROJECT_NAME}_nuage
-                 src/main_nuage.cpp
+add_executable ( ${CMAKE_PROJECT_NAME}_histo
+                 src/main_histo.cpp
                  ${ZZ3_HEADERS}
                  ${ZZ3_SOURCES}
                )
@@ -82,11 +69,8 @@ add_executable ( ${CMAKE_PROJECT_NAME}_test
                )
 
 # Build #-------------------------------------------------------------------------------------------
-set_target_properties ( ${CMAKE_PROJECT_NAME}_metaprog PROPERTIES LINKER_LANGUAGE C )
-target_link_libraries ( ${CMAKE_PROJECT_NAME}_metaprog ${CMAKE_THREAD_LIBS_INIT} )
-
-set_target_properties ( ${CMAKE_PROJECT_NAME}_nuage PROPERTIES LINKER_LANGUAGE C )
-target_link_libraries ( ${CMAKE_PROJECT_NAME}_nuage ${CMAKE_THREAD_LIBS_INIT} )
+set_target_properties ( ${CMAKE_PROJECT_NAME}_histo PROPERTIES LINKER_LANGUAGE C )
+target_link_libraries ( ${CMAKE_PROJECT_NAME}_histo ${CMAKE_THREAD_LIBS_INIT} )
 
 set_target_properties ( ${CMAKE_PROJECT_NAME}_test PROPERTIES LINKER_LANGUAGE C )
 target_link_libraries ( ${CMAKE_PROJECT_NAME}_test ${CMAKE_THREAD_LIBS_INIT} )
