@@ -28,7 +28,7 @@ public:
     Histogramme(Histogramme<C> &);
     classes_t &getClasses();
     valeurs_t &getValeurs();
-    std::pair<it_valeurs_t, it_valeurs_t> &getValeurs(Classe);
+    std::pair<it_valeurs_t, it_valeurs_t> getValeurs(Classe);
     void ajouter(Echantillon);
 };
 
@@ -68,9 +68,9 @@ typename Histogramme<Comp>::valeurs_t &Histogramme<Comp>::getValeurs()
 }
 
 template <typename Comp>
-std::pair<typename Histogramme<Comp>::it_valeurs_t, typename Histogramme<Comp>::it_valeurs_t> &Histogramme<Comp>::getValeurs(Classe a)
+std::pair<typename Histogramme<Comp>::it_valeurs_t, typename Histogramme<Comp>::it_valeurs_t> Histogramme<Comp>::getValeurs(Classe a)
 {
-        return _values.find(a);
+        return _values.equal_range(a);
 }
 
 template <typename Comp>
